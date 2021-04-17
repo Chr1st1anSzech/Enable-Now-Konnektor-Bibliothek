@@ -192,6 +192,18 @@
   <data name="ExpressionEvaluatorMessage02" xml:space="preserve">
     <value>Führe die Erweiterungsmethode "{0}" mit dem Wert "{1}" aus.</value>
   </data>
+  <data name="HttpFormAuthenticationMessage01" xml:space="preserve">
+    <value>Formulardaten gefunden (Name: "{0}", Wert: "{1}").</value>
+  </data>
+  <data name="HttpFormAuthenticationMessage02" xml:space="preserve">
+    <value>Sende das Authentifizierungsformular mit Anmeldedaten (URL: {0}).</value>
+  </data>
+  <data name="HttpFormAuthenticationMessage03" xml:space="preserve">
+    <value>Ein Formular mit anderer ID wurde gefunden. Sende das Formular mit allen Parametern (URL: {0}).</value>
+  </data>
+  <data name="HttpFormAuthenticationMessage04" xml:space="preserve">
+    <value>Rufe die Formularseite ab (URL: {0}).</value>
+  </data>
   <data name="HttpRequestMessage01" xml:space="preserve">
     <value>Sende eine HTTP-Anfrage an: {0}</value>
   </data>
@@ -200,6 +212,21 @@
   </data>
   <data name="HttpRequestMessage03" xml:space="preserve">
     <value>Das Senden der HTTP-Anfrage ist fehlgeschlagen.</value>
+  </data>
+  <data name="HttpRequestMessage05" xml:space="preserve">
+    <value>Eine Authentifizierung ist erforderlich.</value>
+  </data>
+  <data name="HttpRequestMessage4" xml:space="preserve">
+    <value>Die Proxy-Anmeldedaten sind leer.</value>
+  </data>
+  <data name="JobManagerMessage01" xml:space="preserve">
+    <value>Es wurde kein Job mit dem gespeicherten Index {0} gefunden.</value>
+  </data>
+  <data name="JobManagerMessage02" xml:space="preserve">
+    <value>Es wurde kein Job mit der ID {0} gefunden.</value>
+  </data>
+  <data name="JobManagerMessage03" xml:space="preserve">
+    <value>Der Index {0} des zu speichernden Jobs ist außerhalb des Rahmens.</value>
   </data>
   <data name="JobReaderMessage01" xml:space="preserve">
     <value>Die Jobs konnten nicht gelesen werden. Möglicherweise existiert das Verzeichnis {0} nicht oder es fehlen die Berechtigungen.</value>

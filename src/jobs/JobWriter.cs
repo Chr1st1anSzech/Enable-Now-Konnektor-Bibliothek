@@ -11,34 +11,53 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
     public class JobWriter : JobIO, IJsonWriter
     {
         private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private readonly string fileName;
+        private readonly string path;
 
-        public JobWriter(string fileName)
+        public JobWriter()
         {
-            if (string.IsNullOrWhiteSpace(fileName))
+        }
+
+        public JobWriter(string path)
+        {
+            this.path = path;
+        }
+
+        public string Write(object obj, string path2 = null)
+        {
+            if(path2== null)
+            {
+                path2 = path;
+            }
+            CheckPath(path2);
+            string absolutePath = MakeAbsolutePath(path2);
+            string jsonString = JsonConvert.SerializeObject(obj);
+            File.WriteAllText(absolutePath, jsonString);
+            return absolutePath;
+        }
+
+        private void CheckPath(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
             {
                 _log.Error(LocalizationService.GetFormattedResource("JobWriterMessage01"));
                 throw new ArgumentException("JobWriterMessage01");
             }
-            this.fileName = fileName;
         }
 
-        public void Write(object obj)
+        private string MakeAbsolutePath(string path)
         {
-            string jsonString = JsonConvert.SerializeObject(obj);
-            WriteFile(jsonString, fileName);
-        }
-
-        private void WriteFile(string jsonString, string fileName)
-        {
-            string path = Path.Combine(JobDirectory, $"{fileName}.json");
-            int i = 2;
-            while (File.Exists(path))
+            if (!path.EndsWith(".json"))
             {
-                path = Path.Combine(JobDirectory, $"{fileName}-{i}.json");
-                i++;
+                path = $"{path}.json";
             }
-            File.WriteAllText(path, jsonString);
+            if (Path.IsPathFullyQualified(path))
+            {
+                return path;
+            }
+            else
+            {
+                return Path.Combine(JobDirectory, path);
+            }
         }
     }
 }

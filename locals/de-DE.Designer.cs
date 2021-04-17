@@ -286,6 +286,42 @@ namespace Enable_Now_Konnektor_Bibliothek.locals {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Formulardaten gefunden (Name: &quot;{0}&quot;, Wert: &quot;{1}&quot;). ähnelt.
+        /// </summary>
+        internal static string HttpFormAuthenticationMessage01 {
+            get {
+                return ResourceManager.GetString("HttpFormAuthenticationMessage01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sende das Authentifizierungsformular mit Anmeldedaten (URL: {0}). ähnelt.
+        /// </summary>
+        internal static string HttpFormAuthenticationMessage02 {
+            get {
+                return ResourceManager.GetString("HttpFormAuthenticationMessage02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ein Formular mit anderer ID wurde gefunden. Sende das Formular mit allen Parametern (URL: {0}). ähnelt.
+        /// </summary>
+        internal static string HttpFormAuthenticationMessage03 {
+            get {
+                return ResourceManager.GetString("HttpFormAuthenticationMessage03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rufe die Formularseite ab (URL: {0}). ähnelt.
+        /// </summary>
+        internal static string HttpFormAuthenticationMessage04 {
+            get {
+                return ResourceManager.GetString("HttpFormAuthenticationMessage04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sende eine HTTP-Anfrage an: {0} ähnelt.
         /// </summary>
         internal static string HttpRequestMessage01 {
@@ -309,6 +345,51 @@ namespace Enable_Now_Konnektor_Bibliothek.locals {
         internal static string HttpRequestMessage03 {
             get {
                 return ResourceManager.GetString("HttpRequestMessage03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Eine Authentifizierung ist erforderlich. ähnelt.
+        /// </summary>
+        internal static string HttpRequestMessage05 {
+            get {
+                return ResourceManager.GetString("HttpRequestMessage05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Proxy-Anmeldedaten sind leer. ähnelt.
+        /// </summary>
+        internal static string HttpRequestMessage4 {
+            get {
+                return ResourceManager.GetString("HttpRequestMessage4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Es wurde kein Job mit dem gespeicherten Index {0} gefunden. ähnelt.
+        /// </summary>
+        internal static string JobManagerMessage01 {
+            get {
+                return ResourceManager.GetString("JobManagerMessage01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Es wurde kein Job mit der ID {0} gefunden. ähnelt.
+        /// </summary>
+        internal static string JobManagerMessage02 {
+            get {
+                return ResourceManager.GetString("JobManagerMessage02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Index {0} des zu speichernden Jobs ist außerhalb des Rahmens. ähnelt.
+        /// </summary>
+        internal static string JobManagerMessage03 {
+            get {
+                return ResourceManager.GetString("JobManagerMessage03", resourceCulture);
             }
         }
         

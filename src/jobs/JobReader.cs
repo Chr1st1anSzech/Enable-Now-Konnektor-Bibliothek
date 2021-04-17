@@ -12,7 +12,6 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
     {
         private readonly Validator jobValidator = new Validator();
 
-
         public IEnumerable<string> ReadJobPaths()
         {
             try
@@ -26,19 +25,22 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
             }
         }
 
-        public List<JobConfig> ReadAllJobConfigs()
+        public List<JobConfig> ReadAllJobConfigs(ref Dictionary<string, string> jobIdPathDictionary)
         {
             IEnumerable<string> fullFileNames = ReadJobPaths();
             if (fullFileNames == null) return null;
 
             int jobCount = fullFileNames.Count();
-            List<JobConfig> jobsConfigs = new List<JobConfig>();
-            for (int i = 0; i < jobCount; i++)
+            jobIdPathDictionary = new Dictionary<string, string>(jobCount);
+            List<JobConfig> jobsConfigs = new();
+            for (int fileNamesIndex = 0; fileNamesIndex < jobCount; fileNamesIndex++)
             {
-                JobConfig config = ReadJob(fullFileNames.ElementAt(i));
-                if(config != null)
+                string fullFileName = fullFileNames.ElementAt(fileNamesIndex);
+                JobConfig jobConfig = ReadJob(fullFileName);
+                if(jobConfig != null)
                 {
-                    jobsConfigs.Add(config);
+                    jobsConfigs.Add(jobConfig);
+                    jobIdPathDictionary.Add(jobConfig.Id, fullFileName);
                 }
             }
             return jobsConfigs;
@@ -60,16 +62,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
                 return null;
             }
 
-
-            if (jobValidator.ValidateJobConfig(jobConfig))
-            {
-                return jobConfig;
-            }
-            else
-            {
-                log.Error(LocalizationService.GetFormattedResource("JobReaderMessage03", filePath));
-                return null;
-            }
+            return jobConfig;
         }
 
         private string ReadFile(string filePath)

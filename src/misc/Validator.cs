@@ -27,45 +27,5 @@ namespace Enable_Now_Konnektor_Bibliothek.src.misc
             if( value == null ) { return false; }
             return Regex.Match(value, pattern).Success;
         }
-
-
-        public bool ValidateConfig(Config config)
-        {
-            string[] urls = new string[] { config.ConverterUrl, config.FetchUrl, config.IndexUrl, config.ConverterUrl };
-            foreach (string url in urls)
-            {
-                if (!Validate(url, UrlPattern))
-                {
-                    log.Error($"Der Wert {url} entspricht keinem URL-Muster.");
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public bool ValidateJobConfig(JobConfig jobConfig)
-        {
-            string[] urls = new string[] { jobConfig.ContentUrl, jobConfig.DemoUrl, jobConfig.EntityUrl };
-            foreach (string url in urls)
-            {
-                if (!Validate(url, UrlPattern))
-                {
-                    log.Error($"Der Wert {url} entspricht keinem URL-Muster.");
-                    return false;
-                }
-            }
-
-            string[] emails = new string[] { jobConfig.EmailSender, jobConfig.EmailRecipient };
-            foreach (string email in emails)
-            {
-                if (!Validate(email, EmailPattern))
-                {
-                    log.Error($"Der Wert {email} entspricht keinem E-Mail-Muster.");
-                    return false;
-                }
-            }
-
-            return true;
-        }
     }
 }

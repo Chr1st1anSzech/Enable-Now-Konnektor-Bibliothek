@@ -6,6 +6,6 @@ namespace Enable_Now_Konnektor_Bibliothek.src.misc
 {
     public interface IJsonWriter
     {
-        public void Write(object obj) { }
+        public string Write(object obj, string path = null);
     }
 }

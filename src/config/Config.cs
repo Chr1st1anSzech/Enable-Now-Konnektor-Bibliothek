@@ -7,14 +7,10 @@ namespace Enable_Now_Konnektor_Bibliothek.src.config
 {
     public class Config
     {
-        public string IndexUrl { get; set; }
-        public string RemoveUrl { get; set; }
-        public string ConverterUrl { get; set; }
-        public string FetchUrl { get; set; }
-
-        public string ProxyUrl { get; set; } = "http://proxy.de";
-        public int ProxyPort { get; set; } = 0;
-        public bool UseProxy { get; set; } = false;
+        public string IndexUrl { get; set; } = "";
+        public string RemoveUrl { get; set; } = "";
+        public string ConverterUrl { get; set; } = "";
+        public string FetchUrl { get; set; } = "";
 
         public string StringIdentifier { get; set; } = "_str";
         public string FacetIdentifier { get; set; } = "_facet";

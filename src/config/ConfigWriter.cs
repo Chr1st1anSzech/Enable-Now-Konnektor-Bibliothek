@@ -14,10 +14,11 @@ namespace Enable_Now_Konnektor_Bibliothek.src.config
             this.path = path;
         }
 
-        public void Write(object obj)
+        public string Write(object obj, string path = null)
         {
             string jsonString = JsonConvert.SerializeObject(obj);
             WriteFile(jsonString, path);
+            return path;
         }
 
         private void WriteFile(string jsonString, string path)

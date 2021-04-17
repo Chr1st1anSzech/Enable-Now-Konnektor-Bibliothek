@@ -8,37 +8,29 @@ using Newtonsoft.Json;
 
 namespace Enable_Now_Konnektor_Bibliothek.src.config
 {
-    public class ConfigReader :ConfigIO
+    internal class ConfigReader :ConfigIO
     {
         private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        private static Config config;
 
-        private ConfigReader() { }
+        internal ConfigReader() { }
 
-        public static void Initialize()
+        internal Config ReadConfig()
         {
-            if (config == null)
+            Config config;
+            try
             {
-                try
-                {
-                    string jsonString = ReadFile();
-                    config = JsonConvert.DeserializeObject<Config>(jsonString);
-                    new Validator().ValidateConfig(config);
-                }
-                catch (Exception e)
-                {
-                    _log.Error(LocalizationService.GetFormattedResource("ConfigReaderMessage02", FilePath));
-                    throw new Exception(LocalizationService.GetFormattedResource("ConfigReaderMessage02", FilePath), e);
-                }
+                string jsonString = ReadFile();
+                config = JsonConvert.DeserializeObject<Config>(jsonString);
             }
-        }
-
-        public static Config LoadConnectorConfig()
-        {
+            catch (Exception e)
+            {
+                _log.Error(LocalizationService.GetFormattedResource("ConfigReaderMessage02", FilePath));
+                throw new Exception(LocalizationService.GetFormattedResource("ConfigReaderMessage02", FilePath), e);
+            }
             return config;
         }
 
-        private static string ReadFile()
+        private string ReadFile()
         {
             try
             {
