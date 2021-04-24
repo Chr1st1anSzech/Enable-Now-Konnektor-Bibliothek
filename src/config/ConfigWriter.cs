@@ -13,6 +13,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.config
 
         public string Write(object obj, string path = null)
         {
+            if(path == null) { path = s_filePath; }
             string jsonString = JsonConvert.SerializeObject(obj);
             WriteFile(jsonString, path);
             return path;

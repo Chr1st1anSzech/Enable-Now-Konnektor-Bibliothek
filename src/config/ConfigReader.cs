@@ -1,18 +1,20 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using Enable_Now_Konnektor_Bibliothek.src.service;
-using log4net;
 using Newtonsoft.Json;
 
 namespace Enable_Now_Konnektor_Bibliothek.src.config
 {
     internal class ConfigReader : ConfigIO
     {
-        private static readonly ILog s_log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
         internal ConfigReader() { }
 
+
+
+        /// <summary>
+        /// Liest die Konnektor-Konfiguration aus der config.json heraus.
+        /// </summary>
+        /// <returns></returns>
         internal static Config ReadConfig()
         {
             Config config;
@@ -23,22 +25,30 @@ namespace Enable_Now_Konnektor_Bibliothek.src.config
             }
             catch (Exception e)
             {
-                s_log.Error(LocalizationService.FormatResourceString("ConfigReaderMessage02", FilePath));
-                throw new Exception(LocalizationService.FormatResourceString("ConfigReaderMessage02", FilePath), e);
+                string message = LocalizationService.FormatResourceString("ConfigReaderMessage02", s_filePath);
+                s_log.Error(message);
+                throw new Exception(message, e);
             }
             return config;
         }
 
+
+
+        /// <summary>
+        /// Liest den Text aus einer Datei.
+        /// </summary>
+        /// <returns></returns>
         private static string ReadFile()
         {
             try
             {
-                return File.ReadAllText(FilePath);
+                return File.ReadAllText(s_filePath);
             }
             catch (Exception e)
             {
-                s_log.Error(LocalizationService.FormatResourceString("ConfigReaderMessage01", FilePath));
-                throw new Exception(LocalizationService.FormatResourceString("ConfigReaderMessage01", FilePath), e);
+                string message = LocalizationService.FormatResourceString("ConfigReaderMessage01", s_filePath);
+                s_log.Error(message);
+                throw new Exception(message, e);
             }
         }
     }
