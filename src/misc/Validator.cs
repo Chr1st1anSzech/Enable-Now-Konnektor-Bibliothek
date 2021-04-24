@@ -9,10 +9,10 @@ namespace Enable_Now_Konnektor_Bibliothek.src.misc
     {
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         
-        public static string EmailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
-        public static string ServerNamePattern = @"[A-Za-z0-9-]*[A-Za-z0-9]+(\.[A-Za-z0-9-]*[A-Za-z0-9]+)+";
-        public static string EnableNowIdPattern = @"^(PR|GR|SL|M)_[0-9A-Za-z]+$";
-        public static string UrlPattern = @"(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?";
+        public readonly static string EmailPattern = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+        public readonly static string ServerNamePattern = @"[A-Za-z0-9-]*[A-Za-z0-9]+(\.[A-Za-z0-9-]*[A-Za-z0-9]+)+";
+        public readonly static string EnableNowIdPattern = @"^(CD|BO|PR|GR|SL|M)_[0-9A-Za-z]+$";
+        public readonly static string UrlPattern = @"(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?";
 
 
         /// <summary>

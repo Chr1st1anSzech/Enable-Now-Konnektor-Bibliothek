@@ -9,7 +9,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.service
         private static readonly ILog _log = LogManager.GetLogger(typeof(LocalizationService));
         private static ResourceManager res;
 
-        public static string GetFormattedResource(string key, params object[] parameters)
+        public static string FormatResourceString(string key, params object[] parameters)
         {
             if (res == null)
             {

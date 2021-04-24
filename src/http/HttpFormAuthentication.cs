@@ -41,7 +41,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
         /// <returns>Den Inhalt der Serverantwort.</returns>
         private async Task<string> RequestFormAsync(string url)
         {
-            Log.Info(LocalizationService.GetFormattedResource("HttpFormAuthenticationMessage04", url));
+            Log.Info(LocalizationService.FormatResourceString("HttpFormAuthenticationMessage04", url));
             string formMethod = jobConfig.AuthFormMethod.ToLower();
             HttpResponseMessage response;
             if ("post".Equals(formMethod))
@@ -101,7 +101,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
                 List<KeyValuePair<string, string>> body = new();
                 AddFormParameters(htmlForm, body);
 
-                Log.Info(LocalizationService.GetFormattedResource("HttpFormAuthenticationMessage03", actionUrl));
+                Log.Info(LocalizationService.FormatResourceString("HttpFormAuthenticationMessage03", actionUrl));
                 var response = await client.PostAsync(actionUrl, new FormUrlEncodedContent(body));
                 string responseContent = await response.Content.ReadAsStringAsync();
                 return await FollowFormAsync(actionUrl, responseContent);
@@ -118,7 +118,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
         /// <returns></returns>
         private async Task<string> SendFormAsync(string url, string content)
         {
-            Log.Info(LocalizationService.GetFormattedResource("HttpFormAuthenticationMessage02", url));
+            Log.Info(LocalizationService.FormatResourceString("HttpFormAuthenticationMessage02", url));
             List<KeyValuePair<string, string>> body = new()
             {
                 new KeyValuePair<string, string>(jobConfig.AuthUserControl, jobConfig.AuthUser),
@@ -171,7 +171,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
                         name.Length > 0)
                 {
                     string value = inputElement.GetAttributeValue("value", "");
-                    Log.Debug(LocalizationService.GetFormattedResource("HttpFormAuthenticationMessage01", name, value));
+                    Log.Debug(LocalizationService.FormatResourceString("HttpFormAuthenticationMessage01", name, value));
                     formData.Add(new KeyValuePair<string, string>(name, value));
                 }
             }

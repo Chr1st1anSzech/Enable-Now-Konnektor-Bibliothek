@@ -39,7 +39,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
         {
             if (string.IsNullOrWhiteSpace(path))
             {
-                _log.Error(LocalizationService.GetFormattedResource("JobWriterMessage01"));
+                _log.Error(LocalizationService.FormatResourceString("JobWriterMessage01"));
                 throw new ArgumentException("JobWriterMessage01");
             }
         }

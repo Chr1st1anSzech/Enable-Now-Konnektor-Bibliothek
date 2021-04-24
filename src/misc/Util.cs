@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using Enable_Now_Konnektor_Bibliothek.src.service;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +34,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.misc
             }
             catch
             {
-                //_log.Info(GetFormattedResource("UtilMessage01", dateString));
+                _log.Warn(LocalizationService.FormatResourceString("UtilMessage01", dateString));
             }
 
             return ConvertToUnixTime(parsedDate);

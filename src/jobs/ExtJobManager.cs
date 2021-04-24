@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Enable_Now_Konnektor_Bibliothek.src.jobs
 {
-    public class ExtJobManager :JobManager
+    public class ExtJobManager : JobManager
     {
         private protected static new ExtJobManager Manager;
 
@@ -23,29 +23,22 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
                 {
                     recentJobsFilter = value;
                     NotifyPropertyChanged();
-                    NotifyPropertyChanged(nameof(RecentJobs));
+                    NotifyPropertyChanged(nameof(RecentJobIds));
                 }
             } 
         }
 
-        private ObservableCollection<JobConfig> recentJobs = new();
-        public ObservableCollection<JobConfig> RecentJobs { 
-            get 
+        private ObservableCollection<string> recentJobIds = new();
+        public ObservableCollection<string> RecentJobIds
+        {
+            get
             {
-                if (string.IsNullOrEmpty(RecentJobsFilter)) return recentJobs;
+                if (string.IsNullOrEmpty(RecentJobsFilter)) return recentJobIds;
                 else
                 {
-                    return new ObservableCollection<JobConfig>( recentJobs.Where(jobConfig => jobConfig.Id.StartsWith(RecentJobsFilter)) );
+                    return new ObservableCollection<string>(recentJobIds.Where(jobId => jobId.StartsWith(RecentJobsFilter)));
                 }
-                
-            }
-            private set
-            {
-                if (value != recentJobs)
-                {
-                    recentJobs = value;
-                    NotifyPropertyChanged();
-                }
+
             }
         }
 
@@ -97,9 +90,10 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
         private void ReadRecentJobs()
         {
             List<string> jobIds = new RecentJobsReader().ReadRecentJobs();
-            RecentJobs = new ObservableCollection<JobConfig>(
-                AllJobs.Where(job => jobIds.Contains(job.Id))
-            );
+            foreach (string id in JobIds.Where(jobId => jobIds.Contains(jobId) ) )
+            {
+                RecentJobIds.Add(id);
+            }
         }
 
 
@@ -111,10 +105,11 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
         public bool AddRecentJob(JobConfig jobConfig)
         {
             if (jobConfig == null) return false;
-            if (RecentJobs.FirstOrDefault(jobConfig2 => jobConfig.Equals(jobConfig2)) != null) return false;
+            string id = jobConfig.Id;
+            if (RecentJobIds.FirstOrDefault(jobId => id.Equals(jobId)) != null) return false;
 
-            RecentJobs.Add(jobConfig);
-            new RecentJobsWriter().AddRecentJob(jobConfig.Id);
+            RecentJobIds.Add(id);
+            new RecentJobsWriter().AddRecentJob(id);
             return true;
         }
 

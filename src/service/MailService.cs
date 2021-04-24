@@ -31,7 +31,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.service
             }
             catch (Exception e)
             {
-                log.Error(LocalizationService.GetFormattedResource("MailClientMessage02"), e);
+                log.Error(LocalizationService.FormatResourceString("MailClientMessage02"), e);
             }
         }
     }

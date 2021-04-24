@@ -7,7 +7,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.config
 {
     public class ConfigIO
     {
-        public static string FilePath = Path.Combine(Util.GetApplicationRoot(), "config.json");
+        protected static readonly string FilePath = Path.Combine(Util.GetApplicationRoot(), "config.json");
         protected static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
     }
 }

@@ -367,7 +367,7 @@ namespace Enable_Now_Konnektor_Bibliothek.locals {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es wurde kein Job mit dem gespeicherten Index {0} gefunden. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der gewählte Name {0} ist ungültig. Nur Buchstaben, Zahlen sowie Binde- und Unterstrich sind erlaubt. ähnelt.
         /// </summary>
         internal static string JobManagerMessage01 {
             get {
@@ -376,7 +376,7 @@ namespace Enable_Now_Konnektor_Bibliothek.locals {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Es wurde kein Job mit der ID {0} gefunden. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Im Cache befindet sich kein JobConfig-Objekt mit der ID {0}. Das Objekt wird aus dem Dateisystem gelesen. ähnelt.
         /// </summary>
         internal static string JobManagerMessage02 {
             get {
@@ -385,11 +385,20 @@ namespace Enable_Now_Konnektor_Bibliothek.locals {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Der Index {0} des zu speichernden Jobs ist außerhalb des Rahmens. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ein JobConfig-Objekt mit der ID {0} soll erstellt werden. ähnelt.
         /// </summary>
         internal static string JobManagerMessage03 {
             get {
                 return ResourceManager.GetString("JobManagerMessage03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ein JobConfig-Objekt mit der ID {0} wurde erstellt. ähnelt.
+        /// </summary>
+        internal static string JobManagerMessage04 {
+            get {
+                return ResourceManager.GetString("JobManagerMessage04", resourceCulture);
             }
         }
         

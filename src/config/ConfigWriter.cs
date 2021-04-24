@@ -5,13 +5,10 @@ using System.IO;
 
 namespace Enable_Now_Konnektor_Bibliothek.src.config
 {
-    public class ConfigWriter :ConfigIO, IJsonWriter
+    public class ConfigWriter : ConfigIO, IJsonWriter
     {
-        private readonly string path;
-
-        public ConfigWriter(string path)
+        public ConfigWriter()
         {
-            this.path = path;
         }
 
         public string Write(object obj, string path = null)

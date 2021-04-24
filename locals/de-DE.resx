@@ -220,13 +220,16 @@
     <value>Die Proxy-Anmeldedaten sind leer.</value>
   </data>
   <data name="JobManagerMessage01" xml:space="preserve">
-    <value>Es wurde kein Job mit dem gespeicherten Index {0} gefunden.</value>
+    <value>Der gewählte Name {0} ist ungültig. Nur Buchstaben, Zahlen sowie Binde- und Unterstrich sind erlaubt.</value>
   </data>
   <data name="JobManagerMessage02" xml:space="preserve">
-    <value>Es wurde kein Job mit der ID {0} gefunden.</value>
+    <value>Im Cache befindet sich kein JobConfig-Objekt mit der ID {0}. Das Objekt wird aus dem Dateisystem gelesen.</value>
   </data>
   <data name="JobManagerMessage03" xml:space="preserve">
-    <value>Der Index {0} des zu speichernden Jobs ist außerhalb des Rahmens.</value>
+    <value>Ein JobConfig-Objekt mit der ID {0} soll erstellt werden.</value>
+  </data>
+  <data name="JobManagerMessage04" xml:space="preserve">
+    <value>Ein JobConfig-Objekt mit der ID {0} wurde erstellt.</value>
   </data>
   <data name="JobReaderMessage01" xml:space="preserve">
     <value>Die Jobs konnten nicht gelesen werden. Möglicherweise existiert das Verzeichnis {0} nicht oder es fehlen die Berechtigungen.</value>

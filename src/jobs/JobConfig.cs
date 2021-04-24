@@ -10,7 +10,9 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
 
         public bool IsTemplateJob { get; set; } = false;
         public string TemplateJobId { get; set; } = "";
-        public List<string> TemplateOverwriteProperties { get; set; } = new List<string>();
+        public List<string> TemplateOverwriteProperties { get; set; } = new();
+
+        public bool UseTodayWhenDateEmpty { get; set; } = true;
 
         public bool AutostartMetaMapping { get; set; } = true;
         public bool AutostartChildOverwrite { get; set; } = false;
@@ -63,7 +65,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.jobs
         public string AuthPasswordControl { get; set; } = "os_password";
         public string AuthPassword { get; set; } = "123456789";
 
-        public Dictionary<string, string> BlacklistFields { get; set; }
+        public Dictionary<string, string> BlacklistFields { get; set; } = new();
         public string[] MustHaveFields { get; set; } = Array.Empty<string>();
 
         public Dictionary<string, string[]> GlobalMappings { get; set; } = new();

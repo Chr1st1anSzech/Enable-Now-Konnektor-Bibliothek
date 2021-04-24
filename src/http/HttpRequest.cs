@@ -16,7 +16,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private static HttpClient HttpClient;
         private static bool IsAuthenticated = false;
-        private static Semaphore semaphore = new Semaphore(1, 1);
+        private static readonly Semaphore semaphore = new(1, 1);
 
         private readonly JobConfig jobConfig;
 
@@ -63,7 +63,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
                 {
                     if (string.IsNullOrWhiteSpace(jobConfig.ProxyUsername) || string.IsNullOrWhiteSpace(jobConfig.ProxyPassword))
                     {
-                        string message = LocalizationService.GetFormattedResource("HttpRequestMessage4");
+                        string message = LocalizationService.FormatResourceString("HttpRequestMessage4");
                         Log.Error(message);
                         throw new ArgumentException(message);
                     }
@@ -110,7 +110,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
         {
             if (!IsAuthenticated && jobConfig.IsAuthRequired)
             {
-                Log.Info(LocalizationService.GetFormattedResource("HttpRequestMessage05"));
+                Log.Info(LocalizationService.FormatResourceString("HttpRequestMessage05"));
 
                 if ("Formular".Equals(jobConfig.AuthType))
                 {
@@ -155,7 +155,7 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
         public async Task<string> SendRequestAsync(string url)
         {
             ThreadSafeInitClient();
-            Log.Debug(LocalizationService.GetFormattedResource("HttpRequestMessage01", url));
+            Log.Debug(LocalizationService.FormatResourceString("HttpRequestMessage01", url));
             try
             {
                 var response = await HttpClient.GetAsync(url);
@@ -165,12 +165,12 @@ namespace Enable_Now_Konnektor_Bibliothek.src.http
             }
             catch (TaskCanceledException timeoutException)
             {
-                Log.Error(LocalizationService.GetFormattedResource("HttpRequestMessage02"), timeoutException);
+                Log.Error(LocalizationService.FormatResourceString("HttpRequestMessage02"), timeoutException);
                 throw;
             }
             catch (Exception e)
             {
-                Log.Error(LocalizationService.GetFormattedResource("HttpRequestMessage03"), e);
+                Log.Error(LocalizationService.FormatResourceString("HttpRequestMessage03"), e);
                 throw;
             }
         }
