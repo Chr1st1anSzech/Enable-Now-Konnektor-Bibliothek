@@ -39,11 +39,12 @@ namespace Enable_Now_Konnektor_Bibliothek.src.config
         public string ConverterFieldsIdentifier { get; set; } = "fields";
         public Dictionary<string, string> ConverterApplicationMapping { get; set; } = new Dictionary<string, string>()
         {
-            { "Adobe Acrobat Document", "PDF" },
-            { "Microsoft Word", "Word"},
-            {"Microsoft PowerPoint", "PowerPoint" }
+            { "application/pdf", "PDF" },
+            { "application/vnd.ms-word", "Word"},
+            {"application/vnd.ms-powerpoint", "PowerPoint" },
+            {"text/html", "HTML" }
         };
-        public string ConverterApplicationDefaultMapping { get; set; } = "HTML";
+        public string ConverterApplicationDefaultMapping { get; set; } = "Other";
 
         public int MaxErrorCount { get; set; } = 5;
         public int MaxMinutesRuntime { get; set; } = 30;
